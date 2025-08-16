@@ -1,5 +1,6 @@
 {
   "name": "br-gen",
+  "description": "A Brazilian data generator for testing and mock data.",
   "private": true,
   "version": "1.2.4",
   "type": "module",
