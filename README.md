@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/cicerotcv/br-gen/actions/workflows/ci.yml/badge.svg)](https://github.com/cicerotcv/br-gen/actions/workflows/ci.yml)
 [![Version](https://img.shields.io/github/v/release/cicerotcv/br-gen?label=version&color=blue)](https://github.com/cicerotcv/br-gen/releases)
-[![License](https://img.shields.io/github/license/cicerotcv/br-gen?color=green)](LICENSE)
+[![License](https://img.shields.io/github/license/cicerotcv/br-gen?color=blue)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue?logo=typescript)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-19-blue?logo=react)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite)](https://vitejs.dev/)
