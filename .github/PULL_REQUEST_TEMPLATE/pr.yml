@@ -1,0 +1,36 @@
+name: "Pull Request Template"
+description: "Template for all PRs to the GenBr Extension"
+labels: 
+  - "pull request"
+  - "review needed"
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 📝 Description
+        Please describe your changes and what problem they solve.
+
+  - type: textarea
+    id: changes-made
+    attributes:
+      label: "Changes made"
+      description: "List the main changes or features added"
+      placeholder: "e.g., Added new CPF generator"
+
+  - type: textarea
+    id: testing
+    attributes:
+      label: "How to test"
+      description: "Explain how reviewers can test your changes"
+      placeholder: "e.g., Run `pnpm dev:ext` and generate a CPF"
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: "Checklist"
+      options:
+        - "My code follows the repository's coding style"
+        - "I have tested my changes locally"
+        - "I have updated the documentation if necessary"
