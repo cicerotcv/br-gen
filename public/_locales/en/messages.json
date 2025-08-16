@@ -1,0 +1,78 @@
+{
+  "extension_name": {
+    "message": "GenBr",
+    "description": "Extension name"
+  },
+  "extension_description": {
+    "message": "A browser extension for generating Brazilian placeholder data.",
+    "description": "Extension description"
+  },
+  "header_title": {
+    "message": "BR Gen",
+    "description": "Header title"
+  },
+  "header_subtitle": {
+    "message": "Brazilian data generator",
+    "description": "Header subtitle"
+  },
+  "use_mask": {
+    "message": "Use mask",
+    "description": "Checkbox label for mask option"
+  },
+  "auto_copy": {
+    "message": "Auto copy",
+    "description": "Checkbox label for auto copy option"
+  },
+  "clear_all": {
+    "message": "Clear all",
+    "description": "Button text to clear all history"
+  },
+  "clear_history": {
+    "message": "Clear history",
+    "description": "Tooltip text for clear button"
+  },
+  "generate_new_value": {
+    "message": "Generate a new value",
+    "description": "Tooltip text for generate button"
+  },
+  "history": {
+    "message": "History:",
+    "description": "History section label"
+  },
+  "no_history": {
+    "message": "No history available. Generate a value to see it here.",
+    "description": "Message when no history is available"
+  },
+  "copied": {
+    "message": "Copied!",
+    "description": "Message displayed when a value is copied"
+  },
+  "copy_to_clipboard": {
+    "message": "Copy to clipboard",
+    "description": "Button text to copy a value to the clipboard"
+  },
+  "label_cpf": {
+    "message": "CPF",
+    "description": "CPF generator label"
+  },
+  "label_cnpj": {
+    "message": "CNPJ",
+    "description": "CNPJ generator label"
+  },
+  "label_uuid": {
+    "message": "UUID v4",
+    "description": "UUID generator label"
+  },
+  "label_email": {
+    "message": "E-mail",
+    "description": "Email generator label"
+  },
+  "label_phone": {
+    "message": "Phone",
+    "description": "Phone generator label"
+  },
+  "label_cellphone": {
+    "message": "Cellphone",
+    "description": "Cellphone generator label"
+  }
+}

@@ -1,0 +1,170 @@
+name: Bump Extension Version
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "New version (ex: 1.2.3)"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  # Run CI checks first
+  ci-checks:
+    name: Run CI Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Run ESLint
+        run: pnpm lint
+
+      - name: Check Prettier formatting
+        run: pnpm prettier:check
+
+      - name: Run TypeScript check
+        run: pnpm exec tsc -b
+
+      - name: Test build
+        run: pnpm build
+
+  # Only bump version if CI passes
+  bump:
+    name: Bump Version and Release
+    runs-on: ubuntu-latest
+    needs: ci-checks
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Validate version format
+        run: |
+          VERSION="${{ github.event.inputs.version }}"
+          if ! [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Invalid version format. Use x.y.z (example: 1.2.3)"
+            exit 1
+          fi
+          echo "Version format is valid: $VERSION"
+
+      - name: Check if version already exists
+        run: |
+          VERSION="${{ github.event.inputs.version }}"
+          if git tag | grep -q "^v$VERSION$"; then
+            echo "Version v$VERSION already exists"
+            exit 1
+          fi
+          echo "Version v$VERSION is available"
+
+      - name: Update version in files
+        run: |
+          VERSION="${{ github.event.inputs.version }}"
+          
+          echo "Updating package.json to version $VERSION"
+          npm version "$VERSION" --no-git-tag-version
+          
+          echo "Updating manifest.json to version $VERSION"
+          jq ".version = \"$VERSION\"" ./public/manifest.json > ./public/manifest.tmp.json && mv ./public/manifest.tmp.json ./public/manifest.json
+          
+          echo "Version updated to $VERSION in all files"
+
+      - name: Commit and push changes
+        run: |
+          VERSION="${{ github.event.inputs.version }}"
+          
+          # Configure git
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Check if there are changes to commit
+          if git diff --quiet; then
+            echo "No changes to commit"
+            exit 1
+          fi
+          
+          # Add, commit and tag
+          git add package.json public/manifest.json pnpm-lock.yaml || true
+          git commit -m "chore(release): bump version to v$VERSION"
+          git tag "v$VERSION"
+          
+          # Push changes and tag
+          git push origin HEAD
+          git push origin "v$VERSION"
+          
+          echo "Changes committed and pushed with tag v$VERSION"
+
+      - name: Build extension
+        run: pnpm build:zip
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: extension-v${{ github.event.inputs.version }}
+          path: dist.zip
+          retention-days: 30
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ github.event.inputs.version }}
+          name: Release v${{ github.event.inputs.version }}
+          body: |
+            ## GenBr Extension v${{ github.event.inputs.version }}
+            
+            ### What's New
+            - Extension version bumped to v${{ github.event.inputs.version }}
+            - Brazilian data generator with internationalization support
+            
+            ### Installation
+            1. Download the `dist.zip` file below
+            2. Extract the contents
+            3. Load the extracted folder in Chrome Extensions (Developer mode)
+            
+            ### Supported Languages
+            - English (en)
+            - Portuguese Brazil (pt_BR)
+            
+            ---
+            *Generated automatically by GitHub Actions*
+          files: dist.zip
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

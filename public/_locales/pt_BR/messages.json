@@ -1,0 +1,78 @@
+{
+  "extension_name": {
+    "message": "GenBr",
+    "description": "Nome da extensão"
+  },
+  "extension_description": {
+    "message": "Uma extensão do navegador para gerar dados de exemplo brasileiros.",
+    "description": "Descrição da extensão"
+  },
+  "header_title": {
+    "message": "BR Gen",
+    "description": "Título do cabeçalho"
+  },
+  "header_subtitle": {
+    "message": "Gerador de dados brasileiros",
+    "description": "Subtítulo do cabeçalho"
+  },
+  "use_mask": {
+    "message": "Usar máscara",
+    "description": "Label do checkbox para opção de máscara"
+  },
+  "auto_copy": {
+    "message": "Cópia automática",
+    "description": "Label do checkbox para cópia automática"
+  },
+  "clear_all": {
+    "message": "Limpar tudo",
+    "description": "Texto do botão para limpar todo o histórico"
+  },
+  "clear_history": {
+    "message": "Limpar histórico",
+    "description": "Texto do tooltip para botão limpar"
+  },
+  "generate_new_value": {
+    "message": "Gerar um novo valor",
+    "description": "Texto do tooltip para botão gerar"
+  },
+  "history": {
+    "message": "Histórico:",
+    "description": "Label da seção de histórico"
+  },
+  "no_history": {
+    "message": "Nenhum histórico disponível. Gere um valor para vê-lo aqui.",
+    "description": "Mensagem quando não há histórico disponível"
+  },
+  "copied": {
+    "message": "Copiado!",
+    "description": "Mensagem exibida quando um valor é copiado"
+  },
+  "copy_to_clipboard": {
+    "message": "Copiar para a área de transferência",
+    "description": "Texto do botão para copiar um valor para a área de transferência"
+  },
+  "label_cpf": {
+    "message": "CPF",
+    "description": "Label do gerador de CPF"
+  },
+  "label_cnpj": {
+    "message": "CNPJ",
+    "description": "Label do gerador de CNPJ"
+  },
+  "label_uuid": {
+    "message": "UUID v4",
+    "description": "Label do gerador de UUID"
+  },
+  "label_email": {
+    "message": "E-mail",
+    "description": "Label do gerador de email"
+  },
+  "label_phone": {
+    "message": "Telefone",
+    "description": "Label do gerador de telefone"
+  },
+  "label_cellphone": {
+    "message": "Celular",
+    "description": "Label do gerador de celular"
+  }
+}
