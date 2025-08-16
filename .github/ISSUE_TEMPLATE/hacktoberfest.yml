@@ -27,7 +27,6 @@ body:
       label: "Contribution Details"
       description: "Write here what you plan to implement or change."
       placeholder: "Describe your changes..."
-      required: true
 
   - type: markdown
     attributes:
