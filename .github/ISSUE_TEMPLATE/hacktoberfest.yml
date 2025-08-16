@@ -1,0 +1,42 @@
+name: "Hacktoberfest Issue"
+description: "Template for Hacktoberfest contributions to the GenBr Extension"
+title: "[Hacktoberfest] "
+labels: 
+  - "hacktoberfest"
+  - "good first issue"
+  - "help wanted"
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## 🚀 Description
+        This issue is part of **Hacktoberfest**! 🎉
+        We are looking for contributions to the **GenBr Extension**, a Brazilian placeholder data generator for testing and mock data.
+
+        > Briefly explain what needs to be done. Examples:
+        > - Add new data types (CPF, CNPJ, fake addresses)
+        > - Fix bugs in translations or UI display
+        > - Improve the UI/UX of the extension popup
+        > - Refactor code or improve documentation
+
+  - type: markdown
+    attributes:
+      value: |
+        ## ✅ Requirements
+        - Public repository
+        - Pull request should reference this issue
+        - Follow existing code patterns
+        - Test locally before submitting a PR
+
+  - type: markdown
+    attributes:
+      value: |
+        ## 🛠 How to contribute
+        1. Fork this repository
+        2. Create a branch: `git checkout -b my-contribution`
+        3. Make your changes
+        4. Commit your work: `git commit -m "feat: description of your contribution"`
+        5. Push to your fork: `git push origin my-contribution`
+        6. Open a Pull Request to the main repository and link
