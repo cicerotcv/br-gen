@@ -7,6 +7,7 @@
 [![React](https://img.shields.io/badge/React-19-blue?logo=react)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite)](https://vitejs.dev/)
 [![pnpm](https://img.shields.io/badge/pnpm-9-F69220?logo=pnpm)](https://pnpm.io/)
+[![wakatime](https://wakatime.com/badge/user/6b9e0525-e35c-4896-bb9c-db75b3501e3c/project/cc10ba46-2b04-4c29-a7bf-3f978efcf9bd.svg)](https://wakatime.com/badge/user/6b9e0525-e35c-4896-bb9c-db75b3501e3c/project/cc10ba46-2b04-4c29-a7bf-3f978efcf9bd)
 
 A Chrome browser extension for generating Brazilian placeholder data including CPF, CNPJ, emails, phone numbers, and UUIDs. Built with React, TypeScript, and Vite with full internationalization support.
 
